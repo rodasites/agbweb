@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <div class="container">
+    <h3 class="center"></h3>
+    <form #customerForm="ngForm" (submit)="autentica(customerForm)">
+      <h5> Informe seus dados de acesso</h5> <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <label>Usuario:</label>
+          <input [(ngModel)]="usuario.nome" class="form-control" type="text" name="usuario" placeholder="Usuário:" #usuario="ngModel" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <label>Senha:</label>
+          <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="senha" placeholder="Senha:" #senha="ngModel" required>
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <button class="btn btn-primary" type="submit"> Acessar </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

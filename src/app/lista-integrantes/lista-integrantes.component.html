@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row" style="margin: 5px">
+    <button class="btn" (click)= "imprimir()">Imprimir</button>
+  </div>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 40%">Nome </th>
+          <th style="width: 20%">RG</th>
+          <th style="width: 20%">Data de Nascimento</th>
+          <th style="width: 20%">Função</th>
+          
+      </thead>
+    
+      <tbody>
+    
+        <ng-container *ngFor="let lista of integrantes">
+          <tr>
+            <td>{{lista.nome }}</td>
+            <td>{{lista.rg}}</td>
+            <td>{{lista.data_nascimento}}</td>
+            <td>{{lista.funcao}}</td>
+            
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

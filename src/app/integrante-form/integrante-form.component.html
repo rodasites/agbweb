@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="center">Inscrever Integrante</h3>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-12">
+        <form #customerForm="ngForm" (submit)="salvarIntegrante(customerForm)">
+          <h5> Dados Pessoais</h5> <br>
+          <div class="row">
+            <div class="col-sm-2">
+              <label *ngIf="form.rg">RG:</label>
+              <input [textMask]="{mask: maskRg}" [(ngModel)]="form.rg" (blur)="buscaIntegranteRg()" class="form-control" type="text" name="rg"
+                placeholder="RG:" #rg="ngModel" required>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-sm-12">
+              <img [src]="form.foto" style="max-height:200px;"><br>
+              <label>Selefione a foto:</label><br>
+              <input type="file" name="file" accept="image/jpeg" (change)="uploadImagem($event)" >
+            </div>
+          </div>
+      
+      
+          <div class="row">
+            <div class="col-sm-12">
+              <label *ngIf="form.nome">Nome:</label>
+              <input [(ngModel)]="form.nome" class="form-control" type="text" name="nome" placeholder="Nome :" #nome="ngModel" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <label *ngIf="form.dataNascimento">Data Nascimento:</label>
+              <input [textMask]="{mask: maskDataNasc}" [(ngModel)]="form.dataNascimento" class="form-control" type="text" name="dataNascimento"
+                placeholder="Data Nascimento:" #dataNascimento="ngModel" required>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-sm-12">
+              <label *ngIf="form.nomePai">Nome Pai:</label>
+              <input [(ngModel)]="form.nomePai" class="form-control" type="text" name="nomePai" placeholder="Nome do Pai:" #nomePai="ngModel"
+                required>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-sm-12">
+              <label *ngIf="form.nomeMae">Nome Mãe:</label>
+              <input [(ngModel)]="form.nomeMae" class="form-control" type="text" name="nomeMae" placeholder="Nome da Mãe:" #nomeMae="ngModel"
+                required>
+            </div>
+          </div>
+          <br>
+          <hr style="height:1px; border:none; color:#000; background-color:#000; margin-top: 0px; margin-bottom: 0px;" />
+          <br>
+          <h5> Endereço</h5>
+          <br>
+          <div class="row">
+            <div class="col-sm-2">
+              <label *ngIf="form.cep">CEP:</label>
+              <input [textMask]="{mask: maskCep}" [(ngModel)]="form.cep" (blur)="consultaCep($event.target.value)" class="form-control"
+                type="text" name="cep" placeholder="CEP:" #cep="ngModel" required>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-sm-6">
+              <label *ngIf="form.bairro || form.cidade">Cidade:</label>
+              <input [(ngModel)]="form.cidade" class="form-control" type="text" name="cidade" placeholder="Cidade:" #cidade="ngModel" required>
+            </div>
+            <div class="col-sm-6">
+              <label *ngIf="form.bairro || form.cidade">Bairro:</label>
+              <input [(ngModel)]="form.bairro" class="form-control" type="text" name="bairro" placeholder="Bairro:" #bairro="ngModel" required>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-sm-10">
+              <label *ngIf="form.numero || form.endereco">Logradouro:</label>
+              <input [(ngModel)]="form.endereco" class="form-control" type="text" name="endereco" placeholder="Logradouro:" #endereco="ngModel">
+            </div>
+            <div class="col-sm-2">
+              <label *ngIf="form.numero || form.endereco">Número:</label>
+              <input [(ngModel)]="form.numero" class="form-control" type="text" name="numero" placeholder="Número:" #endereco="ngModel"
+                required>
+            </div>
+          </div>
+          <br>
+          <hr style="height:1px; border:none; color:#000; background-color:#000; margin-top: 0px; margin-bottom: 0px;" />
+          <br>
+          <h5> Contato</h5>
+          <br>
+          <div class="row">
+            <div class="col-sm-2">
+              <label *ngIf="form.email || form.telefone">Telefone:</label>
+              <input [textMask]="{mask: maskTelefone}" [(ngModel)]="form.telefone" class="form-control" type="text" name="telefone" placeholder="Telefone:"
+                #telefone="ngModel" required>
+            </div>
+            <div class="col-sm-10">
+              <label *ngIf="form.email || form.telefone">Email:</label>
+              <input [(ngModel)]="form.email" (blur)="validacaoEmail($event.target.value)" class="form-control" type="text" name="email"
+                placeholder="Email:" #email="ngModel" required>
+            </div>
+          </div>
+          <br>
+          <hr style="height:1px; border:none; color:#000; background-color:#000; margin-top: 0px; margin-bottom: 0px;" />
+          <br>
+      
+      
+          <button class="btn btn-primary btn-block" type="submit" [disabled]="!customerForm.valid"> Salvar </button>
+        </form>
+      </div>
+    </div>
+

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 center">
+      <img src="assets/img/logo-agb.png" width="150px" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <h6>Corporacao: {{ corporacao.nome }}</h6>
+      <h6>Regente: {{ corporacao.regente }}</h6>
+      <h6>Coordenado: {{ corporacao.coordenador }}</h6>
+    </div>
+    <div class="col-4" style="text-align:right">
+      <button class="btn btn-link" routerLink="/logout" >Sair do Sistema</button><br>
+      <button class="btn btn-link" routerLink="/alterar-senha">Alterar Senha</button>
+      
+    </div>
+  </div>
+</div>

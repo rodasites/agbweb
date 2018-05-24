@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<h3>Eventos</h3>
+		</div>
+	</div>
+	<div class="row">
+			<div class="col-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nome do Evento</th>
+							<th>Data</th>
+							<th>Categoria</th>
+							<th>Categoria Técnica</th>
+							<th></th>
+						</tr>
+					</thead>
+			
+					<tbody>
+						<tr *ngFor="let lista of eventos" >
+							<td>{{ lista.evento }}</td>
+							<td>{{ lista.data | date:"dd/MM/yyyy"}}</td>
+							<td>{{ lista.categoria }}</td>
+							<td>{{ lista.modalidade }}</td>
+							<td *ngIf="lista.is_active == 1"  > <button class="btn btn-primary btn-block" routerLink="/inscricao-evento/{{ lista.id }}"> Inscrever Integrantes </button></td>
+							<td *ngIf="lista.is_active == 1"  > <button class="btn btn-primary btn-block" routerLink="/lista-integrantes//{{ lista.id }}"> Lista de Inscritos </button></td>
+						</tr>
+					</tbody>
+			  </table>
+			</div>
+		</div>
+
+  
+</div>
